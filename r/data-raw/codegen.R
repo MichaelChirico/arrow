@@ -183,7 +183,8 @@ static const R_CallMethodDef CallEntries[] = {
 \t\t{{NULL, NULL, 0}}
 }};
 \n"),
-  'extern "C" void R_init_arrow(DllInfo* dll){
+  '#include <R_ext/Visibility.h>
+  extern "C" attribute_visible void R_init_arrow(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
 
